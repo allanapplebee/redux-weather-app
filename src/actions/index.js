@@ -8,8 +8,11 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 export function fetchWeather(city) {
   const url = `${ROOT_URL}&q=${city},us`;
   const request = axios.get(url);
+
   return {
     type: FETCH_WEATHER,
     payload: request
+    //redux promise intercepts the payload and waits for the proise to resole
+    //before passing it on to the reducer
   };
 }
